@@ -3,66 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Profissional de Desenvolvimento Web</title>
+    <title>Guia Web - Desenvolvimento Web</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-container">
-            <a href="index.html" class="site-title">Guia Web</a>
-            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span class="menu-icon"></span>
-            </button>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="tecnologias.html" class="nav-link">Tecnologias</a></li>
-                    <li><a href="boas-praticas.html" class="nav-link">Boas Práticas</a></li>
-                    <li><a href="fluxo.html" class="nav-link">Fluxo</a></li>
-                    <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-                    <li>
-                        <button class="theme-toggle" aria-label="Toggle theme">
-                            <span class="theme-icon">🌓</span>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <h1 class="header__title">Guia de Desenvolvimento Web</h1>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="tecnologias.html" class="nav__link">Tecnologias</a></li>
+                <li class="nav__item"><a href="boas-praticas.html" class="nav__link">Boas Práticas</a></li>
+                <li class="nav__item"><a href="fluxo.html" class="nav__link">Fluxo</a></li>
+                <li class="nav__item"><a href="quiz.html" class="nav__link">Quiz</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Guia Profissional de Desenvolvimento Web</h1>
-                <p>Aprenda os fundamentos e boas práticas do desenvolvimento web moderno.</p>
-                <a href="#start" class="btn-primary">Começar</a>
-            </div>
+    <!-- Conteúdo Principal -->
+    <main class="main">
+        <!-- Seção Hero -->
+        <section class="hero" id="hero">
+            <h2 class="hero__title">Aprenda Desenvolvimento Web</h2>
+            <p class="hero__description">Explore as principais tecnologias e conceitos do desenvolvimento web moderno</p>
+            <a href="#tecnologias" class="hero__button">Começar Agora</a>
         </section>
 
-        <section id="start" class="web-basics">
-            <!-- Conteúdo será implementado posteriormente -->
+        <!-- Seção de Cards -->
+        <section class="cards" id="tecnologias">
+            <!-- Card HTML -->
+            <article class="card">
+                <h3 class="card__title">HTML</h3>
+                <p class="card__description">A linguagem de marcação que estrutura o conteúdo web</p>
+                <pre class="card__code">
+                    <code>
+&lt;article class="post"&gt;
+    &lt;h2&gt;Título&lt;/h2&gt;
+    &lt;p&gt;Conteúdo&lt;/p&gt;
+&lt;/article&gt;
+                    </code>
+                </pre>
+            </article>
+
+            <!-- Card CSS -->
+            <article class="card">
+                <h3 class="card__title">CSS</h3>
+                <p class="card__description">Estilização e design visual para suas páginas</p>
+                <pre class="card__code">
+                    <code>
+.card {
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+                    </code>
+                </pre>
+            </article>
+
+            <!-- Card JavaScript -->
+            <article class="card">
+                <h3 class="card__title">JavaScript</h3>
+                <p class="card__description">Programação dinâmica e interatividade</p>
+                <pre class="card__code">
+                    <code>
+function toggleMenu() {
+    const nav = document.querySelector('.nav');
+    nav.classList.toggle('active');
+}
+                    </code>
+                </pre>
+            </article>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-container">
-            <nav>
-                <ul class="footer-nav">
-                    <li><a href="tecnologias.html" class="footer-link">Tecnologias</a></li>
-                    <li><a href="boas-praticas.html" class="footer-link">Boas Práticas</a></li>
-                    <li><a href="fluxo.html" class="footer-link">Fluxo</a></li>
-                    <li><a href="quiz.html" class="footer-link">Quiz</a></li>
-                </ul>
-            </nav>
-            <div class="footer-credits">
-                <p>&copy; 2025 Guia Profissional de Desenvolvimento Web</p>
-            </div>
-        </div>
+    <!-- Rodapé -->
+    <footer class="footer">
+        <nav class="footer__nav">
+            <ul class="footer__list">
+                <li class="footer__item"><a href="#hero" class="footer__link">Início</a></li>
+                <li class="footer__item"><a href="#tecnologias" class="footer__link">Tecnologias</a></li>
+                <li class="footer__item"><a href="boas-praticas.html" class="footer__link">Boas Práticas</a></li>
+            </ul>
+        </nav>
+        <p class="footer__credit">Desenvolvido por Renan Barbosa - 1º Ano B</p>
     </footer>
-
-    <script src="js/common.js"></script>
 </body>
 </html>
