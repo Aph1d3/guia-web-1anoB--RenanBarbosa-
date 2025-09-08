@@ -3,31 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boas Práticas - Guia Profissional</title>
+    <title>Boas Práticas - Guia Profissional de Desenvolvimento Web</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <!-- Menu será implementado posteriormente -->
-        </nav>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="header-container">
+            <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="tecnologias.html" class="nav__link">Tecnologias</a></li>
+                    <li class="nav__item"><a href="boas-praticas.html" class="nav__link">Boas Práticas</a></li>
+                    <li class="nav__item"><a href="fluxo.html" class="nav__link">Fluxo</a></li>
+                    <li class="nav__item"><a href="quiz.html" class="nav__link">Quiz</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌓</span>
+            </button>
+        </div>
     </header>
 
-    <main>
-        <section class="accordion">
-            <!-- Accordion com boas práticas será implementado posteriormente -->
-        </section>
+    <!-- Conteúdo Principal -->
+    <main class="main">
+        <section class="practices">
+            <h2 class="practices__title">Boas Práticas de Desenvolvimento</h2>
+            
+            <h2 class="practices__title">Meu Checklist Pessoal</h2>
+            
+            <!-- Checklist de Progresso -->
+            <div class="practices__progress" id="progress">
+                <p class="practices__progress-text">Progresso: <span id="progress-percentage">0%</span></p>
+                <div class="practices__progress-bar">
+                    <div class="practices__progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="practices__controls">
+                <button class="practices__reset" id="reset-checklist">Resetar Checklist</button>
+            </div>
 
-        <section class="checklist">
-            <!-- Checklist pessoal será implementado posteriormente -->
+            <!-- Seção 1: Semântica & Acessibilidade -->
+            <article class="practices__section" id="semantics">
+                <header class="practices__header">
+                    <h2 class="practices__section-title">Semântica & Acessibilidade</h2>
+                    <button class="practices__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="semantics-content"
+                            data-target="semantics-content">
+                        <span class="practices__toggle-icon"></span>
+                    </button>
+                </header>
+                <div class="practices__content accordion-content" id="semantics-content" style="display: none">
+                    <ul class="practices__list">
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="semantic-landmarks" 
+                                   class="practices__checkbox"
+                                   data-practice="semantic-landmarks">
+                            <label for="semantic-landmarks">Usar landmarks semânticos (header, nav, main, footer)</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="semantic-headings" 
+                                   class="practices__checkbox"
+                                   data-practice="semantic-headings">
+                            <label for="semantic-headings">Manter hierarquia correta de headings (h1-h6)</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="semantic-alt" 
+                                   class="practices__checkbox"
+                                   data-practice="semantic-alt">
+                            <label for="semantic-alt">Fornecer alternativas textuais para imagens (alt)</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="semantic-contrast" 
+                                   class="practices__checkbox"
+                                   data-practice="semantic-contrast">
+                            <label for="semantic-contrast">Garantir contraste mínimo de 4.5:1</label>
+                        </li>
+                    </ul>
+                    <pre class="practices__code">
+                        <code>
+<!-- Exemplo de HTML Semântico -->
+&lt;header role="banner">
+    &lt;nav role="navigation" aria-label="Menu principal">
+        &lt;ul>
+            &lt;li>&lt;a href="#" aria-current="page">Home&lt;/a>&lt;/li>
+        &lt;/ul>
+    &lt;/nav>
+&lt;/header>
+&lt;main role="main">
+    &lt;article>
+        &lt;h1>Título Principal&lt;/h1>
+        &lt;img src="imagem.jpg" alt="Descrição significativa">
+    &lt;/article>
+&lt;/main>
+                        </code>
+                    </pre>
+                </div>
+            </article>
+
+            <!-- Seção 2: Responsividade -->
+            <article class="practices__section" id="responsive">
+                <header class="practices__header">
+                    <h2 class="practices__section-title">Responsividade</h2>
+                    <button class="practices__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="responsive-content"
+                            data-target="responsive-content">
+                        <span class="practices__toggle-icon"></span>
+                    </button>
+                </header>
+                <div class="practices__content" id="responsive-content" hidden>
+                    <ul class="practices__list">
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="responsive-mobile" 
+                                   class="practices__checkbox"
+                                   data-practice="responsive-mobile">
+                            <label for="responsive-mobile">Implementar abordagem Mobile-First</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="responsive-flexgrid" 
+                                   class="practices__checkbox"
+                                   data-practice="responsive-flexgrid">
+                            <label for="responsive-flexgrid">Utilizar Flexbox e Grid para layouts</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="responsive-units" 
+                                   class="practices__checkbox"
+                                   data-practice="responsive-units">
+                            <label for="responsive-units">Usar unidades relativas (rem, em, %)</label>
+                        </li>
+                    </ul>
+                    <pre class="practices__code">
+                        <code>
+/* Exemplo de CSS Responsivo */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Mobile First */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+                        </code>
+                    </pre>
+                </div>
+            </article>
+
+            <!-- Seção 3: Organização de CSS -->
+            <article class="practices__section" id="css-org">
+                <header class="practices__header">
+                    <h2 class="practices__section-title">Organização de CSS</h2>
+                    <button class="practices__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="css-org-content"
+                            data-target="css-org-content">
+                        <span class="practices__toggle-icon"></span>
+                    </button>
+                </header>
+                <div class="practices__content" id="css-org-content" hidden>
+                    <ul class="practices__list">
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="css-methodology" 
+                                   class="practices__checkbox"
+                                   data-practice="css-methodology">
+                            <label for="css-methodology">Usar metodologia BEM para nomes de classes</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="css-variables" 
+                                   class="practices__checkbox"
+                                   data-practice="css-variables">
+                            <label for="css-variables">Implementar CSS variables para temas</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="css-comments" 
+                                   class="practices__checkbox"
+                                   data-practice="css-comments">
+                            <label for="css-comments">Documentar seções com comentários</label>
+                        </li>
+                    </ul>
+                    <pre class="practices__code">
+                        <code>
+/* Exemplo de CSS Organizado */
+:root {
+    --color-primary: #2563EB;
+    --color-text: #111827;
+    --spacing-unit: 1rem;
+}
+
+/* Components */
+.card {
+    margin-bottom: var(--spacing-unit);
+}
+
+.card__title {
+    color: var(--color-primary);
+}
+
+.card__content {
+    padding: var(--spacing-unit);
+}
+
+/* Utilities */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </article>
+
+            <!-- Seção 4: Performance -->
+            <article class="practices__section" id="performance">
+                <header class="practices__header">
+                    <h2 class="practices__section-title">Performance</h2>
+                    <button class="practices__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="performance-content"
+                            data-target="performance-content">
+                        <span class="practices__toggle-icon"></span>
+                    </button>
+                </header>
+                <div class="practices__content" id="performance-content" hidden>
+                    <ul class="practices__list">
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="perf-images" 
+                                   class="practices__checkbox"
+                                   data-practice="perf-images">
+                            <label for="perf-images">Otimizar e comprimir imagens</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="perf-lazy" 
+                                   class="practices__checkbox"
+                                   data-practice="perf-lazy">
+                            <label for="perf-lazy">Implementar lazy loading</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="perf-js" 
+                                   class="practices__checkbox"
+                                   data-practice="perf-js">
+                            <label for="perf-js">Minimizar uso de JavaScript</label>
+                        </li>
+                    </ul>
+                    <pre class="practices__code">
+                        <code>
+// Exemplo de Performance
+// Lazy loading de imagens
+&lt;img 
+    src="placeholder.jpg"
+    data-src="image.jpg"
+    loading="lazy"
+    alt="Descrição"
+>
+
+// Debounce para otimização
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+                        </code>
+                    </pre>
+                </div>
+            </article>
+
+            <!-- Seção 5: Versionamento Git -->
+            <article class="practices__section" id="git">
+                <header class="practices__header">
+                    <h2 class="practices__section-title">Versionamento Git</h2>
+                    <button class="practices__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="git-content"
+                            data-target="git-content">
+                        <span class="practices__toggle-icon"></span>
+                    </button>
+                </header>
+                <div class="practices__content" id="git-content" hidden>
+                    <ul class="practices__list">
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="git-commit" 
+                                   class="practices__checkbox"
+                                   data-practice="git-commit">
+                            <label for="git-commit">Escrever mensagens de commit descritivas</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="git-branch" 
+                                   class="practices__checkbox"
+                                   data-practice="git-branch">
+                            <label for="git-branch">Criar branches para cada feature</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="git-frequency" 
+                                   class="practices__checkbox"
+                                   data-practice="git-frequency">
+                            <label for="git-frequency">Fazer commits pequenos e frequentes</label>
+                        </li>
+                    </ul>
+                    <pre class="practices__code">
+                        <code>
+# Exemplo de boas práticas Git
+
+# Criar e mudar para nova branch
+git checkout -b feature/nova-funcionalidade
+
+# Commit descritivo
+git commit -m "feat: adiciona validação de formulário
+- Implementa validação de email
+- Adiciona feedback visual
+- Trata erros de submissão"
+
+# Merge com branch principal
+git checkout main
+git merge feature/nova-funcionalidade
+                        </code>
+                    </pre>
+                </div>
+            </article>
+
+            <!-- Seção 6: Boas práticas de JS -->
+            <article class="practices__section" id="javascript">
+                <header class="practices__header">
+                    <h2 class="practices__section-title">Boas práticas de JS</h2>
+                    <button class="practices__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="javascript-content"
+                            data-target="javascript-content">
+                        <span class="practices__toggle-icon"></span>
+                    </button>
+                </header>
+                <div class="practices__content" id="javascript-content" hidden>
+                    <ul class="practices__list">
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="js-pure" 
+                                   class="practices__checkbox"
+                                   data-practice="js-pure">
+                            <label for="js-pure">Criar funções puras quando possível</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="js-naming" 
+                                   class="practices__checkbox"
+                                   data-practice="js-naming">
+                            <label for="js-naming">Usar nomes descritivos para variáveis e funções</label>
+                        </li>
+                        <li class="practices__item">
+                            <input type="checkbox" 
+                                   id="js-error" 
+                                   class="practices__checkbox"
+                                   data-practice="js-error">
+                            <label for="js-error">Implementar tratamento de erros</label>
+                        </li>
+                    </ul>
+                    <pre class="practices__code">
+                        <code>
+// Exemplo de boas práticas JavaScript
+
+// Função pura
+function calculateTotal(items) {
+    return items.reduce((total, item) => 
+        total + item.price * item.quantity, 0);
+}
+
+// Tratamento de erros
+async function fetchUserData(userId) {
+    try {
+        const response = await fetch(`/api/users/${userId}`);
+        if (!response.ok) {
+            throw new Error('Usuário não encontrado');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao buscar usuário:', error);
+        throw error;
+    }
+}
+
+// Nomes descritivos
+const isUserLoggedIn = true;
+const pendingTransactions = [];
+function validateEmailFormat(email) {
+    // implementação
+}
+                        </code>
+                    </pre>
+                </div>
+            </article>
         </section>
     </main>
 
-    <footer>
-        <!-- Footer será implementado posteriormente -->
+    <!-- Rodapé -->
+    <footer class="footer">
+        <nav class="footer__nav">
+            <ul class="footer__list">
+                <li class="footer__item"><a href="index.html" class="footer__link">Início</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Voltar ao Topo</a></li>
+            </ul>
+        </nav>
+        <p class="footer__credit">Desenvolvido por Renan Barbosa - 1º Ano B</p>
     </footer>
+
+    <script src="js/boas-praticas.js" defer></script>
 </body>
 </html>

@@ -3,31 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnologias Web - Guia Profissional</title>
+    <title>Tecnologias - Guia Profissional de Desenvolvimento Web</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <!-- Menu será implementado posteriormente -->
-        </nav>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="header-container">
+            <h1 class="header__title">Guia Profissional de Desenvolvimento Web</h1>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="tecnologias.html" class="nav__link">Tecnologias</a></li>
+                    <li class="nav__item"><a href="boas-praticas.html" class="nav__link">Boas Práticas</a></li>
+                    <li class="nav__item"><a href="fluxo.html" class="nav__link">Fluxo</a></li>
+                    <li class="nav__item"><a href="quiz.html" class="nav__link">Quiz</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌓</span>
+            </button>
     </header>
 
-    <main>
-        <section class="filters">
-            <!-- Filtros serão implementados posteriormente -->
+    <!-- Conteúdo Principal -->
+    <main class="main">
+        <!-- Seção de Filtros -->
+        <section class="filters" aria-labelledby="filters-heading">
+            <h2 id="filters-heading" class="filters__title">Filtrar Tecnologias</h2>
+            
+            <div class="filters__categories" role="group" aria-label="Categorias de tecnologias" aria-controls="cards-container">
+                <button class="filters__button" data-category="front-end" aria-pressed="false">
+                    Front-end frameworks
+                </button>
+                <button class="filters__button" data-category="back-end" aria-pressed="false">
+                    Back-end
+                </button>
+                <button class="filters__button" data-category="bancos" aria-pressed="false">
+                    Bancos de dados
+                </button>
+                <button class="filters__button" data-category="devops" aria-pressed="false">
+                    DevOps/Deploy
+                </button>
+                <button class="filters__button" data-category="testes" aria-pressed="false">
+                    Testes
+                </button>
+            </div>
+
+            <div class="filters__search">
+                <label for="search-input" class="visually-hidden">Buscar tecnologia</label>
+                <input type="text" 
+                       id="search-input" 
+                       class="filters__search-input" 
+                       placeholder="Buscar tecnologia..."
+                       aria-label="Buscar tecnologias">
+                <button class="filters__search-clear" 
+                        aria-label="Limpar busca"
+                        hidden>
+                    ✕
+                </button>
+            </div>
         </section>
 
-        <section class="tech-grid">
-            <!-- Grid de tecnologias será implementado posteriormente -->
+        <!-- Grid de Tecnologias -->
+        <section class="tech-grid" aria-labelledby="tech-grid-heading">
+            <h2 id="tech-grid-heading" class="visually-hidden">Lista de Tecnologias</h2>
+            
+            <!-- Estado de Carregamento -->
+            <div class="tech-grid__loading" role="status" aria-label="Carregando tecnologias" hidden>
+                <div class="loading-spinner"></div>
+                <p>Carregando tecnologias...</p>
+            </div>
+
+            <!-- Container dos Cards -->
+            <div id="cards-container" class="tech-grid__container">
+                <!-- React -->
+                <article class="tech-card" data-category="front-end" data-tech-id="react" data-name="React" data-pros="Grande ecossistema e comunidade ativa,Virtual DOM para melhor performance" data-cons="Curva de aprendizado para conceitos avançados,Necessidade de bibliotecas adicionais para funcionalidades comuns">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">React</h3>
+                        <span class="tech-card__badge" data-level="intermediate">Intermediário</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Biblioteca JavaScript para construção de interfaces de usuário reativas e componentes reutilizáveis.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Grande ecossistema e comunidade ativa</li>
+                                <li>Virtual DOM para melhor performance</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Curva de aprendizado para conceitos avançados</li>
+                                <li>Necessidade de bibliotecas adicionais para funcionalidades comuns</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Projetos pequenos e simples que não necessitam de componentes reativos.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://reactjs.org" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre React"
+                                aria-controls="modal-react"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Vue.js -->
+                <article class="tech-card" data-category="frontend" data-tech-id="vue">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">Vue.js</h3>
+                        <span class="tech-card__badge" data-level="basic">Básico</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Framework progressivo para construção de interfaces de usuário com foco em simplicidade e flexibilidade.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Fácil de aprender e usar</li>
+                                <li>Documentação excelente</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Menos oportunidades de trabalho que React</li>
+                                <li>Ecossistema menor</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Projetos que necessitam de grande ecossistema de bibliotecas específicas.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://vuejs.org" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre Vue.js"
+                                aria-controls="modal-vue"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Angular -->
+                <article class="tech-card" data-category="frontend" data-tech-id="angular">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">Angular</h3>
+                        <span class="tech-card__badge" data-level="advanced">Avançado</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Framework completo para desenvolvimento de aplicações web empresariais com TypeScript.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Framework completo e robusto</li>
+                                <li>Forte tipagem com TypeScript</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Curva de aprendizado íngreme</li>
+                                <li>Boilerplate extenso</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Projetos pequenos ou MVP's que precisam de desenvolvimento rápido.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://angular.io" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre Angular"
+                                aria-controls="modal-angular"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Node.js -->
+                <article class="tech-card" data-category="backend" data-tech-id="nodejs">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">Node.js</h3>
+                        <span class="tech-card__badge" data-level="intermediate">Intermediário</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Runtime JavaScript para execução de código no servidor, ideal para aplicações em tempo real.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Excelente para I/O não-bloqueante</li>
+                                <li>Grande ecossistema de pacotes</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Não ideal para computação intensiva</li>
+                                <li>Callback hell em código legado</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Aplicações que requerem processamento pesado de CPU.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://nodejs.org" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre Node.js"
+                                aria-controls="modal-nodejs"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Python/Django -->
+                <article class="tech-card" data-category="backend" data-tech-id="django">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">Python/Django</h3>
+                        <span class="tech-card__badge" data-level="intermediate">Intermediário</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Framework web Python com bateria inclusa, oferecendo admin integrado e ORM poderoso.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Admin automático</li>
+                                <li>ORM poderoso</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Monolítico por natureza</li>
+                                <li>Pode ser inflexível</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Microsserviços ou quando precisa de mais flexibilidade arquitetural.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://www.djangoproject.com" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre Django"
+                                aria-controls="modal-django"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Java/Spring -->
+                <article class="tech-card" data-category="backend" data-tech-id="spring">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">Java/Spring</h3>
+                        <span class="tech-card__badge" data-level="advanced">Avançado</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Framework Java empresarial para desenvolvimento de aplicações robustas e escaláveis.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Ecossistema maduro</li>
+                                <li>Suporte empresarial</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Configuração complexa</li>
+                                <li>Curva de aprendizado alta</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Projetos pequenos que precisam de desenvolvimento ágil.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://spring.io" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre Spring"
+                                aria-controls="modal-spring"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- MySQL -->
+                <article class="tech-card" data-category="database" data-tech-id="mysql">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">MySQL</h3>
+                        <span class="tech-card__badge" data-level="intermediate">Intermediário</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Sistema de gerenciamento de banco de dados relacional mais popular do mundo.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Fácil de usar e configurar</li>
+                                <li>Grande suporte comunitário</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Limitações em escalabilidade</li>
+                                <li>Recursos avançados pagos</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Aplicações que necessitam de recursos avançados de banco de dados.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://www.mysql.com" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre MySQL"
+                                aria-controls="modal-mysql"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- PostgreSQL -->
+                <article class="tech-card" data-category="database" data-tech-id="postgresql">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">PostgreSQL</h3>
+                        <span class="tech-card__badge" data-level="advanced">Avançado</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Sistema de banco de dados relacional avançado com recursos enterprise.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Recursos avançados</li>
+                                <li>Extensibilidade</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Complexidade de configuração</li>
+                                <li>Maior consumo de recursos</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Aplicações simples com recursos limitados de hardware.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://www.postgresql.org" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre PostgreSQL"
+                                aria-controls="modal-postgresql"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- MongoDB -->
+                <article class="tech-card" data-category="database" data-tech-id="mongodb">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">MongoDB</h3>
+                        <span class="tech-card__badge" data-level="intermediate">Intermediário</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Banco de dados NoSQL orientado a documentos com alta escalabilidade.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Flexibilidade de schema</li>
+                                <li>Escalabilidade horizontal</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Sem transações ACID completas</li>
+                                <li>Maior uso de memória</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Aplicações que necessitam de relacionamentos complexos e transações.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://www.mongodb.com" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre MongoDB"
+                                aria-controls="modal-mongodb"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Docker -->
+                <article class="tech-card" data-category="devops" data-tech-id="docker">
+                    <header class="tech-card__header">
+                        <h3 class="tech-card__title">Docker</h3>
+                        <span class="tech-card__badge" data-level="intermediate">Intermediário</span>
+                    </header>
+                    <div class="tech-card__main">
+                        <p class="tech-card__description">
+                            Plataforma para desenvolvimento, envio e execução de aplicações em containers.
+                        </p>
+                        <div class="tech-card__lists">
+                            <h4>Prós:</h4>
+                            <ul>
+                                <li>Ambientes consistentes</li>
+                                <li>Fácil distribuição</li>
+                            </ul>
+                            <h4>Contras:</h4>
+                            <ul>
+                                <li>Overhead de virtualização</li>
+                                <li>Complexidade inicial</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card__avoid">
+                            <h4>Quando evitar:</h4>
+                            <p>Aplicações simples sem necessidade de isolamento ou distribuição.</p>
+                        </div>
+                    </div>
+                    <footer class="tech-card__footer">
+                        <a href="https://www.docker.com" 
+                           class="tech-card__link" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Site Oficial
+                        </a>
+                        <button class="tech-card__details-btn"
+                                aria-label="Ver mais detalhes sobre Docker"
+                                aria-controls="modal-docker"
+                                aria-expanded="false">
+                            Ver mais
+                        </button>
+                    </footer>
+                </article>
+            </div>
+            </div>
         </section>
+
+        <!-- Modal Template -->
+        <div class="modal" id="tech-modal" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1">
+                <div class="modal__content" role="document">
+                    <header class="modal__header">
+                        <h2 class="modal__title"></h2>
+                        <button class="modal__close" 
+                                aria-label="Fechar modal"
+                                type="button">
+                            ✕
+                        </button>
+                    </header>
+                    <div class="modal__body">
+                        <section class="modal__section">
+                            <h3>Quando escolher esta tecnologia?</h3>
+                            <ul class="modal__list">
+                                <!-- Preenchido via JavaScript -->
+                            </ul>
+                        </section>
+                        <section class="modal__section">
+                            <h3>Recursos de Aprendizado</h3>
+                            <ul class="modal__resources">
+                                <!-- Preenchido via JavaScript -->
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <!-- Footer será implementado posteriormente -->
+    <!-- Rodapé -->
+    <footer class="footer">
+        <nav class="footer__nav">
+            <ul class="footer__list">
+                <li class="footer__item"><a href="index.html" class="footer__link">Início</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Voltar ao Topo</a></li>
+            </ul>
+        </nav>
+        <p class="footer__credit">Desenvolvido por Renan Barbosa - 1º Ano B</p>
     </footer>
+
+    <script src="js/tecnologias.js" defer></script>
 </body>
 </html>
